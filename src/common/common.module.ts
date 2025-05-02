@@ -1,6 +1,5 @@
 import { Module } from "@nestjs/common";
 import { MongoModule, RmqModule } from "./infrastructure";
-import { GridUtilsService } from "./application";
 @Module({
     imports: [
         RmqModule,
@@ -8,12 +7,10 @@ import { GridUtilsService } from "./application";
     ],
     controllers: [],
     providers: [
-        GridUtilsService,
         
 
     ],
     exports: [
-        GridUtilsService,
        
 
     ],

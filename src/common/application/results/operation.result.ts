@@ -17,7 +17,7 @@ export function successResult<T>(
   return {
     success: true,
     data: data || ({} as T),
-    messages: [message || 'عملیات با موفقیت انجام شد'],
+    messages: [message || 'Operation completed successfully'],
   };
 }
 
@@ -34,6 +34,6 @@ export function failedResult<T>(
   return {
     success: false,
     data: data || ({} as T),
-    messages: [message || 'عملیات با خطا مواجه شد'],
+    messages: [message || 'Operation failed'],
   };
 }

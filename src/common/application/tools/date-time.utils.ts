@@ -1,30 +1,7 @@
-import moment from 'moment-timezone';
 import { AppException } from '../exceptions';
 type DateInput = Date | string | null | undefined;
 
 export class DateTimeUtils {
-  static toStandardDate(timestamp: number): Date {
-    moment.tz.setDefault(moment.tz.guess());
-    const formattedDateTime = moment(timestamp * 1000).format(
-      'YYYY-MM-DDTHH:mm:ss',
-    );
-    return new Date(`${formattedDateTime}Z`);
-  }
-
-  static getUtcDateLocalTime() {
-    moment.tz.setDefault(moment.tz.guess());
-    var datetimeLocalFormat = moment().format("YYYY-MM-DDTHH:mm:ss");
-    var datetime = new Date(`${datetimeLocalFormat}Z`);
-    return datetime;
-  }
-
-  static getUtcDateLocalTimeByTimeStamp(timestamp: number) {
-    moment.tz.setDefault(moment.tz.guess());
-    var datetimeLocalFormat = moment(timestamp * 1000).format("YYYY-MM-DDTHH:mm:ss");
-    var datetime = new Date(`${datetimeLocalFormat}Z`);
-    return datetime;
-  }
-
   static formatDate(): string {
     const date = new Date();
 
@@ -36,12 +13,6 @@ export class DateTimeUtils {
     const minutes = pad(date.getMinutes());
     const seconds = pad(date.getSeconds());
     return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
-  }
-
-  static momentFormattedDate(): string {
-    return moment()
-      .milliseconds(0) // Set milliseconds to 0
-      .format("YYYY-MM-DDTHH:mm:ss.SSS[+00:00]");
   }
 
   static validateDateRange(

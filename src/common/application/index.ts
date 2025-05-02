@@ -7,4 +7,3 @@ export * from './decorators';
 export * from './tools';
 export * from './extensions';
 export * from './models';
-export * from './pipes';

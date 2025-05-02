@@ -4,7 +4,6 @@ import {
 } from './infrastructure';
 
 
-import { GridUtilsService } from 'src/common';
 import { AppConfigService } from 'src/config';
 
 import { CommonModule } from 'src/common/common.module';
@@ -16,7 +15,7 @@ import { CommonModule } from 'src/common/common.module';
   controllers: [
     
   ],
-  providers: [GridUtilsService,
+  providers: [
    
    
     ApplicationScheduler

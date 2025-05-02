@@ -41,11 +41,6 @@ async function bootstrap() {
   const appConfig: AppConfigService = app.get(AppConfigService);
   const applicationPort: number = appConfig.application.port;
 
-  // Set a global prefix for all routes, excluding specific paths
-  app.setGlobalPrefix('api/tracking-service', {
-    exclude: ['health', 'version', '/'], // Exclude the routes
-  });
-
   // Setup Swagger in development mode
   if (appConfig.application.nodeEnv === APPLICATION_CONSTANT.ENVIRONMENT.IS_DEVELOPMENT) {
     await setupSwagger(app, 'swagger');

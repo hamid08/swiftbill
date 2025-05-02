@@ -1,7 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsOptional, IsString, IsNotEmpty } from 'class-validator';
-import { error } from 'console';
-
 
 export class SelectItemDto<TId = number> {
     id: TId;
@@ -14,9 +12,8 @@ export class SelectItemDto<TId = number> {
 }
 
 export class SelectItemFilter {
-
     @ApiProperty({ required: true })
     @IsString()
-    @IsNotEmpty({ message: 'مقداری برای جستجو وارد نشده است' })
+    @IsNotEmpty({ message: 'No search term was entered' })
     searchTerm: string;
 }

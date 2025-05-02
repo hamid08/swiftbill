@@ -1,17 +1,3 @@
-// import * as moment from 'moment-timezone';
-
-// declare global {
-//   interface Date {
-//     toLocalTime(): string;
-//   }
-// }
-
-// Date.prototype.toLocalTime = function (): string {
-//   return moment(this).tz('Asia/Tehran').format('YYYY-MM-DDTHH:mm:ss.SSSSSSSZ');
-// };
-
-// export {};
-
 declare global {
   interface Date {
     toLocalTehranTime(): string;
