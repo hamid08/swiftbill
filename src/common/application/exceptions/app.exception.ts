@@ -2,7 +2,7 @@ import { HttpException, HttpStatus } from '@nestjs/common';
 
 /**
  * Custom exception class that extends HttpException.
- * It provides more specific error handling with optional Persian messages.
+ * It provides more specific error handling with optional English messages.
  */
 export class AppException extends HttpException {
   private readonly errorCode?: string;
@@ -10,14 +10,11 @@ export class AppException extends HttpException {
   constructor(message: string, statusCode: HttpStatus, errorCode?: string) {
     super(message, statusCode);
     this.errorCode = errorCode;
-
-    // Optional logging of the error, for example, using a logger service
-    // Logger.error(`AppException: ${message}`, errorCode);
   }
 
   static NotFound(message?: string, errorCode?: string): AppException {
     return new AppException(
-      message || 'منبع مورد نظر یافت نشد',
+      message || 'The requested resource was not found',
       HttpStatus.NOT_FOUND,
       errorCode,
     );
@@ -25,7 +22,7 @@ export class AppException extends HttpException {
 
   static Unauthorized(message?: string, errorCode?: string): AppException {
     return new AppException(
-      message || 'اعتبار سنجی غیرمجاز',
+      message || 'Unauthorized access',
       HttpStatus.UNAUTHORIZED,
       errorCode,
     );
@@ -33,23 +30,23 @@ export class AppException extends HttpException {
 
   static BadRequest(message?: string, errorCode?: string): AppException {
     return new AppException(
-      message || 'درخواست نادرست',
+      message || 'Bad request',
       HttpStatus.BAD_REQUEST,
       errorCode,
     );
   }
 
   static Conflict(message?: string, errorCode?: string): AppException {
-    return new AppException(message || 'تضاد در درخواست', HttpStatus.CONFLICT, errorCode);
+    return new AppException(message || 'Request conflict', HttpStatus.CONFLICT, errorCode);
   }
 
   static Forbidden(message?: string, errorCode?: string): AppException {
-    return new AppException(message || 'دسترسی غیر مجاز', HttpStatus.FORBIDDEN, errorCode);
+    return new AppException(message || 'Forbidden access', HttpStatus.FORBIDDEN, errorCode);
   }
 
   static InternalServerError(message?: string, errorCode?: string): AppException {
     return new AppException(
-      message || 'خطای داخلی سرور',
+      message || 'Internal server error',
       HttpStatus.INTERNAL_SERVER_ERROR,
       errorCode,
     );

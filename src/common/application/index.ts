@@ -6,6 +6,5 @@ export * from './interceptors';
 export * from './decorators';
 export * from './tools';
 export * from './extensions';
-export * from './guards';
 export * from './models';
 export * from './pipes';

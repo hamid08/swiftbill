@@ -19,7 +19,7 @@ import { APPLICATION_CONSTANT } from '../constants';
 @Catch()
 export class AppExceptionFilter implements ExceptionFilter {
   private readonly logger = new Logger(AppExceptionFilter.name);
-  private readonly productionMessage = 'متاسفانه خطایی رخ داده است لطفا با پشتیبانی تماس بگیرید';
+  private readonly productionMessage = 'An error occurred. Please contact support.';
 
   constructor(
     @Inject(AppConfigService) private readonly configService: AppConfigService,
@@ -62,13 +62,13 @@ export class AppExceptionFilter implements ExceptionFilter {
   private determineErrorResponse(exception: unknown): { status: number; message: string } {
     const defaultResponse = {
       status: 500,
-      message: 'خطای داخلی کد 500'
+      message: 'Internal server error (code 500)'
     };
 
     if (exception instanceof NotFoundException) {
       return {
         status: 404,
-        message: 'مسیر مورد نظر یافت نشد'
+        message: 'The requested path was not found'
       };
     }
 
@@ -118,7 +118,7 @@ export class AppExceptionFilter implements ExceptionFilter {
     }
 
     return this.shouldShowDetailedError()
-      ? 'خطای سرور'
+      ? 'Server error'
       : this.productionMessage;
   }
 
