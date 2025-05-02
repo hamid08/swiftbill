@@ -8,8 +8,8 @@ import { APPLICATION_CONSTANT, setupSwagger, setupValidation } from './common';
 import { NestExpressApplication } from '@nestjs/platform-express';
 
 console.log(
-  `🚀 Welcome to the Tracking Service Api (Version: ${packageJson.version}) 🚀\n` +
-  `✨ A product by PGA Company (${new Date().getFullYear()}) ✨`,
+  `🚀 Welcome to the Swift Bill Api (Version: ${packageJson.version}) 🚀\n` +
+  `✨ A product by Payever Company (${new Date().getFullYear()}) ✨`,
 );
 
 // Check Node.js version compatibility

@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: "tracking-service-api",
+      name: "swift-bill-api",
       script: "dist/src/main.js",
       instances: "max", // Use all CPU cores
       autorestart: true,
@@ -16,9 +16,9 @@ module.exports = {
       },
 
       // Logging setup
-      // error_file: "./logs/tracking-service-api-error.log", // Stderr logs
-      // out_file: "./logs/tracking-service-api-out.log", // Stdout logs
-      // pid_file: "./logs/tracking-service-api.pid", // Process ID file
+      // error_file: "./logs/swift-bill-api-error.log", // Stderr logs
+      // out_file: "./logs/swift-bill-api-out.log", // Stdout logs
+      // pid_file: "./logs/swift-bill-api.pid", // Process ID file
       // merge_logs: true, // Combine instance logs
       // log_date_format: "YYYY-MM-DD HH:mm:ss.SSS", // More precise timestamps
       // time: true, // Log process uptime

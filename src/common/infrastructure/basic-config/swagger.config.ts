@@ -7,9 +7,9 @@ export async function setupSwagger(app: INestApplication, route: string) {
   const description = [`🍕  API documentation for the Tracking Service`];
 
   const configDocument = new DocumentBuilder()
-    .setTitle('Tracking Service API')
+    .setTitle('Swift Bill API')
     .setDescription(description.join('\r\n\r\n'))
-    .setVersion(packageJson.version || '2.0.0')
+    .setVersion(packageJson.version || '1.0.0')
     .addBearerAuth(
       {
         type: 'http',

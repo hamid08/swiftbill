@@ -1,7 +1,7 @@
 {
-  "name": "tracking-service-api",
-  "version": "2.0.0.8",
-  "description": "Management tracking service & api provider for tracking-panel",
+  "name": "swift-bill-api",
+  "version": "1.0.0",
+  "description": "Management Invoice",
   "author": "hamid nasiri",
   "private": true,
   "license": "UNLICENSED",
@@ -25,9 +25,9 @@
 
     "start:pm2": "pm2 start ecosystem.config.js --env production",
     "start:pm2-dev": "pm2 start ecosystem.config.js --env development",
-    "stop:pm2": "pm2 stop tracking-service-api",
-    "restart:pm2": "pm2 restart tracking-service-api",
-    "logs:pm2": "pm2 logs tracking-service-api --lines 200",
+    "stop:pm2": "pm2 stop swift-bill-api",
+    "restart:pm2": "pm2 restart swift-bill-api",
+    "logs:pm2": "pm2 logs swift-bill-api --lines 200",
     
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "test": "jest",
