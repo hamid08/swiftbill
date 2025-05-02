@@ -1,0 +1,11 @@
+export const DECORATOR_CONSTANT = {
+  KEYS: {
+    AUTHORIZED_PERMISSION_KEY: 'AuthorizedPermissions',
+    DISPLAY_NAME_KEY: 'displayName',
+    SKIP_INTERCEPTOR: 'SKIP_INTERCEPTOR',
+    LOG_PROCESS_INTERCEPTOR: 'LOG_PROCESS_INTERCEPTOR',
+    IGNORE_FOR_SORT_KEY: 'ignoreForSort',
+    IGNORE_FOR_FILTER_KEY: 'ignoreForFilter',
+    IGNORE_FOR_SEARCH_KEY: 'ignoreForSearch',
+  },
+};

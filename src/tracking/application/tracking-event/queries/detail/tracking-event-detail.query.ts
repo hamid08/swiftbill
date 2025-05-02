@@ -1,0 +1,4 @@
+import { IQuery } from '@nestjs/cqrs';
+export class TrackingEventDetailQuery implements IQuery {
+    constructor(public readonly id: number) { }
+}

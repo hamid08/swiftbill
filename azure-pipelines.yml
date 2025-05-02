@@ -1,0 +1,36 @@
+trigger:
+  tags:
+    include:
+      - '*' # Triggers on any tag
+
+pr:
+  branches:
+    include:
+      - '*' # Include PR builds for all branches (optional)
+
+jobs:
+  - job: BuildAndPush
+    pool:
+      name: 'Default' # Change as per your agent needs
+
+    steps:
+      # Step 1: Read the version from package.json and set it as a variable
+      - task: Bash@3
+        inputs:
+          targetType: 'inline'
+          script: |
+            version=$(cat "$(Build.SourcesDirectory)/.version")
+            echo "##vso[task.setvariable variable=VersionNumber]$version"
+            echo "Version number: $version"
+        displayName: 'Read version from package.json'
+
+      # Step 2: Build and push the Docker image using the version as the tag
+      - task: Docker@2
+        inputs:
+          containerRegistry: 'pga-registry'
+          repository: 'separta_dev/tracking_service_api'
+          command: 'buildAndPush'
+          Dockerfile: '**/Dockerfile'
+          tags: '$(VersionNumber)'
+          buildContext: '$(Build.SourcesDirectory)' # Adjust if your Dockerfile needs a specific context path
+        displayName: 'Build and push Docker image'
