@@ -1,85 +1,253 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Backend Software Web Engineer (m/f/x) Assessment at payever
+hamidnaseri855@gmail.com Switch account
+ 
+The name, email, and photo associated with your Google account will be recorded when you upload files and submit this form
+* Indicates required question
+2. Complete the technical Task
+Please read through everything and follow the steps. We cannot help you technically as it’s required to solely finish the task without external help to make it equally fair for every participant.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+BACKEND ENGINEERING TASK
+ESTIMATED TIME: 480 MINUTES (you are allowed to take more time, but please plan a full working day)
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-## Project setup
 
-```bash
-$ npm install
-```
+Your task is to generate an invoice and daily sales Report System
 
-## Compile and run the project
+Required Skills: NestJS, MongoDB, RabbitMQ, Cron Jobs, RESTful APIs, Email Sending, Testing (Unit and Integration)
 
-```bash
-# development
-$ npm run start
 
-# watch mode
-$ npm run start:dev
 
-# production mode
-$ npm run start:prod
-```
+Scenario
 
-## Run tests
+Your task is to build a system where users can create invoices for sales transactions. The system will automatically generate a daily sales summary report and send it via email at 12:00 PM each day. The report will be sent through a RabbitMQ queue, where a separate consumer service will process the email sending.
 
-```bash
-# unit tests
-$ npm run test
 
-# e2e tests
-$ npm run test:e2e
 
-# test coverage
-$ npm run test:cov
-```
+Task Breakdown
 
-## Resources
+1. Invoice Creation Service:
 
-Check out a few resources that may come in handy when working with NestJS:
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+Project Setup:
 
-## Support
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+Initialize a NestJS project.
 
-## Stay in touch
+Integrate MongoDB for data persistence.
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
 
-## License
+MongoDB Schema Design:
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+
+Design the Invoice model based on the fields provided:
+
+
+customer (string): The name or identifier of the customer.
+
+amount (number): The total amount of the invoice.
+
+reference (string): A reference code for the invoice.
+
+date (date): The date the invoice was created.
+
+items (array of objects): Each item includes:
+
+
+sku (string): Stock Keeping Unit, unique identifier for the item.
+
+qt (number): Quantity of the item.
+
+
+
+
+REST API Development:
+
+
+Develop the following REST endpoints:
+
+
+
+
+
+POST /invoices - Create a new invoice.
+
+GET /invoices/:id - Retrieve a specific invoice by ID.
+
+GET /invoices - Retrieve a list of all invoices (with optional filters like date range).
+
+
+
+
+Testing:
+
+
+Write unit tests for the invoice creation and retrieval logic.
+
+Write integration tests for the REST API endpoints using supertest.
+
+
+2. Daily Sales Summary Report:
+
+
+Cron Job Setup:
+
+
+Implement a cron job in the Invoice Service to run daily at 12:00 PM.
+
+The cron job should:
+
+
+
+
+
+Calculate the total sales for the day.
+
+Calculate the total quantity sold per item (grouped by SKU).
+
+Prepare a summary report.
+
+
+
+
+RabbitMQ Integration:
+
+
+Publish the daily sales summary report to a RabbitMQ queue named daily_sales_report.
+
+The message should include:
+
+
+
+
+
+Total sales amount.
+
+Per item sales summary (SKU, total quantity sold).
+
+
+
+
+Consumer Service for Email Sending:
+
+
+Create a separate NestJS service (email-sender) to consume messages from the daily_sales_report queue.
+
+Implement the consumer to:
+
+
+
+
+
+Receive the sales summary report.
+
+Send an email containing the report (you can mock the email sending or use a service like SendGrid).
+
+
+
+
+
+Write unit tests for the message processing and email sending logic.
+
+
+
+
+Technical Requirements
+
+Invoice Creation Service:
+
+
+Proper MongoDB schema and REST API for invoice management.
+
+Cron job for daily sales report generation.
+
+RabbitMQ producer to publish sales summary reports.
+
+Consumer Service (Email Sending):
+
+
+RabbitMQ consumer to process sales summary reports.
+
+Mock or real implementation for sending emails with the sales report.
+
+General:
+
+
+Use Docker or Docker Compose for easy setup and running both services together.
+
+Ensure proper error handling and logging in both services.
+
+Testing should cover critical functions and edge cases.
+
+
+
+Deliverables
+
+
+ZIP File Submission:
+
+
+Compress the project files into a single .zip file.
+
+The ZIP file must not include the following directories:
+
+
+.git (Git version control folder)
+
+node_modules (Dependencies)
+
+dist (Compiled output)
+
+
+The structure inside the ZIP file should be clean and ready to run after extraction.
+
+
+README File:
+
+
+Provide a README.md file within the ZIP that includes:
+
+
+Setup instructions.
+
+How to run the services.
+
+Any additional notes on the implementation.
+
+
+
+
+
+Evaluation Criteria
+
+
+Correctness: The solution should correctly create invoices, generate daily reports, and send emails.
+
+Microservice Communication: Proper use of RabbitMQ for passing reports between services.
+
+Testing: Comprehensive test coverage for both services.
+
+Cron and Email Integration: Effective use of cron jobs and handling of email sending.
+
+Submission Quality: The ZIP file should be correctly structured and contain all necessary files as per the instructions.
+
+
+
+The main goal of the task is to show your skills in the best way possible.
+
+
+
+
+Done?
+*
+1. Your project passes eslint
+2. The project builds and can start
+3. All endpoints can be requested from postman
+4. Data is stored in database successfully and rabbit event is emitted
+5. Your application is covered with unit/functional tests (IMPORTANT)
+Never submit passwords through Google Forms.
+This form was created inside of payever GmbH.
+Does this form look suspicious? Report
+
+Google Forms
