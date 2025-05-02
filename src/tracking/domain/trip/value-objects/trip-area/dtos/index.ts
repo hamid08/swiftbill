@@ -1,1 +1,0 @@
-export * from './trip-area.domain.dto';

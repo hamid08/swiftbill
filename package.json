@@ -18,7 +18,7 @@
     "check:ts": "tsc --noEmit",
     "check:all": "npm run check:lint && npm run check:format && npm run check:ts",
     "prestart": "npm run build",
-    "start": "npm run setup-db && nest start",
+    "start": "nest start",
     "start:dev": "nest start --watch",
     "start:debug": "npm run check:all && nest start --debug --watch",
     "start:prod": "node dist/src/main.js",
@@ -28,21 +28,13 @@
     "stop:pm2": "pm2 stop tracking-service-api",
     "restart:pm2": "pm2 restart tracking-service-api",
     "logs:pm2": "pm2 logs tracking-service-api --lines 200",
-
+    
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json",
-
-    "setup-db": "npm run create-db && npm run migration:run",
-    "create-db": "ts-node  src/tracking/infrastructure/database/postgresql/tools/create-database.ts",
-    "typeorm": "npm run build && npm run create-db && npx typeorm -d dist/src/tracking/infrastructure/database/postgresql/tools/data-source.js",
-    "migration:generate": "ts-node src/tracking/infrastructure/database/postgresql/tools/generate-migration.ts",
-    "migration:run": "npm run typeorm -- migration:run",
-    "migration:revert": "npm run typeorm -- migration:revert",
-    "migration:show": "npm run typeorm -- migration:show"
+    "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
     "@golevelup/nestjs-rabbitmq": "^5.5.0",

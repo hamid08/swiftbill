@@ -3,7 +3,6 @@ import { SchedulerRegistry } from '@nestjs/schedule';
 import { CronJob } from 'cron';
 import { CronUtils, TimeUnit } from 'src/common';
 import { CommandBus } from '@nestjs/cqrs';
-import { StopTraceDeviceCommand } from 'src/tracking/application';
 
 
 @Injectable()
@@ -34,7 +33,7 @@ export class ApplicationScheduler {
         const jobName = 'stop-tracing-job';
 
         this.registerCronJob(jobName, cronExpression, async () => {
-            await this.commandBus.execute(new StopTraceDeviceCommand([], true));
+            // await this.commandBus.execute(new StopTraceDeviceCommand([], true));
         });
     }
 
